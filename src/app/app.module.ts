@@ -7,10 +7,12 @@ import { AuthComponent } from './auth/auth.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { TrainingComponent } from './training/training.component';
-import { PreviousTrainingComponent } from './training/previous-training/previous-training.component';
-import { CurrentTrainingComponent } from './training/current-training/current-training.component';
-import { NewTrainingComponent } from './training/new-training/new-training.component';
+import { MaterialModule } from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms'
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
 
 @NgModule({
   declarations: [
@@ -18,15 +20,15 @@ import { NewTrainingComponent } from './training/new-training/new-training.compo
     AuthComponent,
     SignupComponent,
     LoginComponent,
-    WelcomeComponent,
-    TrainingComponent,
-    PreviousTrainingComponent,
-    CurrentTrainingComponent,
-    NewTrainingComponent
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule, 
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
