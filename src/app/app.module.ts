@@ -11,6 +11,10 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms'
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ExploreComponent } from './explore/explore.component';
+import { RecommendComponent } from './explore/recommend/recommend.component';
+import { SearchComponent } from './explore/search/search.component';
+import { HistoryComponent } from './explore/history/history.component';
 
 
 
@@ -20,7 +24,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AuthComponent,
     SignupComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ExploreComponent,
+    RecommendComponent,
+    SearchComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

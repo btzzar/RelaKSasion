@@ -30,19 +30,10 @@ mat-sidenav{
     width: 250px;
 }
 
-/*primary-color {
-    color: #FF4081!important;
+#logo{
+    font-size:25px;
+    margin-left:20px;
+    /*font-family: 'Righteous', cursive;*/
+    font-family: 'Monoton', cursive;
+
 }
-
-
-.accent-color {
-    color: #3F51B5!important;
-}
-
-.background-primary-color {
-    color: #FF4081!important;
-}
-
-.background-accent-color {
-    color: #3F51B5!important;
-}*/
