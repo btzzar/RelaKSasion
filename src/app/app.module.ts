@@ -15,6 +15,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { RecommendComponent } from './explore/recommend/recommend.component';
 import { SearchComponent } from './explore/search/search.component';
 import { HistoryComponent } from './explore/history/history.component';
+import { Login2Component } from './login2/login2.component';
 
 
 
@@ -28,7 +29,8 @@ import { HistoryComponent } from './explore/history/history.component';
     ExploreComponent,
     RecommendComponent,
     SearchComponent,
-    HistoryComponent
+    HistoryComponent,
+    Login2Component
   ],
   imports: [
     BrowserModule,
