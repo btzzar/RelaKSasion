@@ -33,3 +33,8 @@ mat-card-content {
   margin: 20px auto;
 }
 
+a{
+  margin-left: 10%;
+  color: #303F9F;
+}
+
