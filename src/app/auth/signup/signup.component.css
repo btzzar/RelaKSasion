@@ -32,3 +32,7 @@ mat-card-content {
   width: 80%;
   margin: 20px auto;
 }
+
+/deep/ .mat-checkbox-layout {
+  white-space: normal !important;
+}

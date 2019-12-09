@@ -59,9 +59,10 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-checkbox color="primary" name="acceptance" ngModel required>
-        I accept the terms of condition of use.
+      <mat-checkbox color="primary" name="acceptance" ngModel required style="display:inline-block; margin-left: 10%" >
+        <p style="display:inline-block; overflow: ellipsis; margin-left: 2%"> I accept the terms and conditions of use. </p>
       </mat-checkbox>
+      
 
       <button
       [disabled]="f.invalid"
