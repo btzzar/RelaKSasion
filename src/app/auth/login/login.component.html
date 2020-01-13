@@ -12,9 +12,9 @@
                   required
                   name="email"
                   ngModel
-                  #email="ngModel">
-                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                  <mat-error *ngIf="!email.invalid">Use correct email format</mat-error>
+                  #emailInput="ngModel">
+                  <mat-error *ngIf="emailInput.hasError('required')">Email is required</mat-error>
+                  <mat-error *ngIf="!emailInput.hasError('required')">Use correct email format</mat-error>
                 <mat-icon matSuffix>email</mat-icon>
               </mat-form-field>
               <mat-form-field>
@@ -26,18 +26,18 @@
                   minlength="6"
                   name="password"
                   ngModel
-                  #password="ngModel">
+                  #passwordInput="ngModel">
                   <mat-error
-                    *ngIf="password.errors && password.errors.required">
+                    *ngIf="passwordInput.errors && passwordInput.errors.required">
                     Password is required
                   </mat-error>
                   <mat-error
-                    *ngIf="password.errors && password.errors.minlength">
+                    *ngIf="passwordInput.errors && passwordInput.errors.minlength">
                     Password must be of length 6
                   </mat-error>
                 <mat-icon matSuffix>lock</mat-icon>
               </mat-form-field>
-              <mat-checkbox>Remember Me!</mat-checkbox>
+              <mat-checkbox color="primary">Remember Me!</mat-checkbox>
               <button
                 type="submit"
                 mat-raised-button
@@ -45,9 +45,11 @@
                 class="login-button"
                 [disabled]="f.invalid">
                 Sign In
-              </button>
+              </button> 
+              <mat-label *ngIf = "errorExists">{{ errorText }}</mat-label>
             </form>
-            <a routerLink="/signup">Dont have an accout? Sign up!</a>
+            <hr>
+            <a routerLink="/signup">I don't have an account.</a>
           </mat-card-content>
       
   </mat-card>

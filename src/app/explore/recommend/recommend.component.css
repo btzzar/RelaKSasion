@@ -1,0 +1,11 @@
+/*.list-group-item-text {
+	color:#c299fc;
+}*/
+
+/*span {
+	color: #673ab7;
+}*/
+.list-group-item-text, .list-group-item-heading {
+	margin-left: 10%;
+	color:#673ab7;
+}

@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import { MatDialogModule } from '@angular/material'
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +18,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { RecommendComponent } from './explore/recommend/recommend.component';
 import { SearchComponent } from './explore/search/search.component';
 import { HistoryComponent } from './explore/history/history.component';
-
+import { UserService } from './user.service';
+import { ProfileComponent } from './auth/profile/profile.component';
 
 
 
@@ -30,6 +34,8 @@ import { HistoryComponent } from './explore/history/history.component';
     RecommendComponent,
     SearchComponent,
     HistoryComponent,
+    ProfileComponent,
+    
     ],
   imports: [
     BrowserModule,
@@ -37,9 +43,10 @@ import { HistoryComponent } from './explore/history/history.component';
     MaterialModule,
     BrowserAnimationsModule, 
     FormsModule,
-    FlexLayoutModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    FlexLayoutModule,
+    ],
+  providers: [UserService],
+  bootstrap: [AppComponent],
+  entryComponents: [ProfileComponent]
 })
 export class AppModule { }
