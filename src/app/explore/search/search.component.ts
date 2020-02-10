@@ -1,4 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Event } from '../../shared/event.model';
+
+import { ExploreService } from '../explore.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-search',
@@ -8,15 +13,37 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchComponent implements OnInit {
 
 
-  @Output() searchQuery = new EventEmitter<void>();
+  // @Output() searchQuery = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private exploreService: ExploreService) { }
+
+  events: Event[];
+
+  reducedEvents: Event[];
+
+  selectedCategory;
+  selectedCity;
+
+  selectedSpot;
 
   ngOnInit() {
+    this.events = this.exploreService.getEvents();
   }
 
-  searchQueryResults(){
-  	this.searchQuery.emit();
+  onSubmit(form: NgForm){
+    this.selectedCategory = form.value.type;
+    this.selectedCity = form.value.city;
+    console.log(this.selectedCategory);
+    console.log(this.selectedCity);
+
+    this.reducedEvents = this.events.filter(x => x.city == this.selectedCity && x.type == this.selectedCategory);
+    console.log(this.reducedEvents);
   }
+
+  
+
+  // searchQueryResults(){
+  // 	this.searchQuery.emit();
+  // }
 
 }

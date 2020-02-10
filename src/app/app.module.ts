@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MatDialogModule } from '@angular/material'
+import {CalendarModule} from 'primeng/calendar';
 
 
 
@@ -20,6 +21,9 @@ import { SearchComponent } from './explore/search/search.component';
 import { HistoryComponent } from './explore/history/history.component';
 import { UserService } from './user.service';
 import { ProfileComponent } from './auth/profile/profile.component';
+import { ExploreService } from './explore/explore.service';
+
+
 
 
 
@@ -35,7 +39,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
     SearchComponent,
     HistoryComponent,
     ProfileComponent,
-    
+        
     ],
   imports: [
     BrowserModule,
@@ -44,8 +48,9 @@ import { ProfileComponent } from './auth/profile/profile.component';
     BrowserAnimationsModule, 
     FormsModule,
     FlexLayoutModule,
+    CalendarModule
     ],
-  providers: [UserService],
+  providers: [UserService, ExploreService],
   bootstrap: [AppComponent],
   entryComponents: [ProfileComponent]
 })

@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
      }
      this.errorExists = false;
      this.router.navigate(['/explore']);
+     this.userService.currentUser = user;
+
   }
 
   ngOnInit() {

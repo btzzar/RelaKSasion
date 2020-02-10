@@ -11,7 +11,7 @@
       <a mat-list-item routerLink="/explore" (click)="sidenav.close()"
         ><mat-icon>explore</mat-icon> &nbsp;Explore</a
       >
-      <a mat-list-item routerLink="/" (click)="sidenav.close()"
+      <a mat-list-item routerLink="/login" (click)="onLogout(); sidenav.close();"
         ><mat-icon>exit_to_app</mat-icon> &nbsp;Logout</a
       >
     </mat-nav-list>
@@ -27,10 +27,10 @@
 
       <div id="logo">RelaKSasion</div>
       <div fxFlex fxLayoutAlign="end" fxLayoutGap="20px" fxHide.xs>
-        <a routerLink="/signup">Signup</a>
-        <a routerLink="/login">Login</a>
+        <a *ngIf="!this.userService.currentUser" routerLink="/signup">Signup</a>
+        <a *ngIf="!this.userService.currentUser" routerLink="/login">Login</a>
         <a routerLink="/explore">Explore</a>
-        <button mat-raised-button color="warn"
+        <button *ngIf="this.userService.currentUser"  mat-raised-button color="warn"
  (click)="openProfile(this.userService.currentUser.id)">{{
 this.userService.currentUser.email}}</button>
       </div>

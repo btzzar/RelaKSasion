@@ -14,7 +14,8 @@ export interface User {
 })
 export class UserService {
 
-  currentUser: User = UserService.userList[0];
+  // currentUser: User = UserService.userList[0];
+  currentUser: User = null;
 
   static userList: Array<User> = [
   	{ 	
@@ -69,7 +70,7 @@ export class UserService {
 
   		UserService.userList.push(user);
 
-      this.currentUser = user;
+      // this.currentUser = user;
   		console.log(user);
   		return user;
   	}

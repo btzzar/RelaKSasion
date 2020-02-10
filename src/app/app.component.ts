@@ -21,6 +21,7 @@ export class AppComponent {
 
   openProfile(userId: number)
   {
+    if(this.userService.currentUser!=null){
   	this.profileOpened = true;
 
   	const profileDialog = this.dialog.open(ProfileComponent, {
@@ -29,13 +30,15 @@ export class AppComponent {
   		data: { user: this.userService.getUserById(userId) }
   	});
 
+
   	profileDialog.afterClosed().subscribe(result => {
  	  this.profileOpened = false;
- 	});
 
+ 	});
+  }
   }
 
   onLogout(){
-    this.userService.currentUser = undefined;
+    this.userService.currentUser = null;
   }
 }

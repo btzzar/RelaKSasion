@@ -7,25 +7,102 @@
 
 		<!-- Sadrzaj kartice -->
 		<mat-card-content fxLayoutAlign="center" fxLayoutGap="15px">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
 			<mat-form-field>
-        <mat-select placeholder=" Choose category:">
+        <mat-select ngModel name="type" required  placeholder=" Choose category:">
           <!-- dostupne opcije -->
-          <mat-option value="restaurant">
+          <mat-option value="Restaurant">
             Restaurant
           </mat-option>
-          <mat-option value="hotel">
+          <mat-option value="Hotel">
               Hotel
           </mat-option>
-          <mat-option value="spa_center">
+          <mat-option value="Spa_center">
               Spa Center
           </mat-option>
         </mat-select>
       </mat-form-field>  
+      <mat-form-field>
+        <mat-select ngModel name="city" required  placeholder=" Choose city:">
+          <!-- dostupne opcije -->
+          <mat-option value="Beograd">
+            Beograd
+          </mat-option>
+          <mat-option value="Novi Sad">
+              Novi Sad
+          </mat-option>
+          <mat-option value="Nis">
+              Nis
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
+    
+			<button class="btn" (click)="selectedSpot = undefined" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Search</button>
+    </form>
     </mat-card-content>
-
-		<!--akcija kartice -->
-		<mat-card-actions fxLayoutAlign="center">
-			<button type="submit" mat-raised-button color="primary">Search</button>
-		</mat-card-actions>
 	</mat-card>
 </section> 
+
+<hr>
+
+<div class="row">
+	
+	<div class="col-md-6">
+
+	<div class="row">
+		<div class="col-xs-12">
+			<a class="list-group-item clearfix" *ngFor = "let e of reducedEvents" (click)="selectedSpot = e">
+				<div class="pull-left">
+					<h4 class="list-group-item-heading">{{ e.name }}</h4>
+					<p class="list-group-item-text">{{ e.type }}</p>
+					<p class="list-group-item-text">Rating: {{ e.rating }}</p></div>
+
+					<span class="pull-right"><img style="margin-right: 10%; float: 'right'"[src]="e.imgPath" 
+						alt="{{ e.name }}"class="img-responsive" style="max-height: 50px;">
+					</span>
+
+				</a>	
+			</div>	
+		</div>
+	</div>
+
+	
+	<div class="col-md-6" *ngIf="selectedSpot">
+		<!-- <div class="row">
+			<div class="col-xs-12">
+				<img src=" {{ selectedEvent.imgPath}}" alt="{{ selectedEvent.name}}" class="img-responsive">
+
+			</div>
+		</div> -->
+		<div class="row">
+			<div class="col-xs-12">
+				<h1> {{ selectedSpot.name }} </h1>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				{{ selectedSpot.type }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				Rating: {{ selectedSpot.rating }}
+			</div>
+		</div> 
+		<div class="row" style="margin-top:15%">
+			<div class="col-xs-12">
+				Description: {{ selectedSpot.desc }}
+			</div>
+		</div>
+		<div class="row" style="margin-top: 5%">
+			<div class="col-xs-12">
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary dropdown-toggle">Book <span class = "caret"></span>
+					</button>		
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

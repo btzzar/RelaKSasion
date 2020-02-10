@@ -1,4 +1,9 @@
-export class Event {
-	constructor(public name:string, public type: string,
-				public rating: number, public imgPath:string, public desc: string){}
+export interface Event {
+	name:string;
+	type: string; 
+	city: string;
+	rating: number;
+	imgPath:string;
+	desc: string;
+	status?: 'done' | 'cancelled' | null;
 }
