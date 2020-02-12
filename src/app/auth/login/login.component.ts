@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { UserService } from './../../user.service';
+import { UserService } from './../../shared/user.service';
 import { Router } from '@angular/router';
 
 
@@ -32,15 +32,16 @@ export class LoginComponent implements OnInit {
        return;
      }
      var isPasswordValid = this.userService.isPasswordCorrect(email, password);
-     if(!isPasswordValid){
+     if(isPasswordValid == false){
        this.errorExists = true;
        this.errorText = "Wrong password";
+       this.userService.currentUser = null;
        return;
-     }
+     }else{
      this.errorExists = false;
      this.router.navigate(['/explore']);
      this.userService.currentUser = user;
-
+     }
   }
 
   ngOnInit() {

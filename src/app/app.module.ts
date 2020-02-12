@@ -19,9 +19,14 @@ import { ExploreComponent } from './explore/explore.component';
 import { RecommendComponent } from './explore/recommend/recommend.component';
 import { SearchComponent } from './explore/search/search.component';
 import { HistoryComponent } from './explore/history/history.component';
-import { UserService } from './user.service';
+import { UserService } from './shared/user.service';
 import { ProfileComponent } from './auth/profile/profile.component';
-import { ExploreService } from './explore/explore.service';
+import { ExploreService } from './shared/explore.service';
+import { HistoryService } from './shared/history.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NotifierModule } from "angular-notifier";
+
+
 
 
 
@@ -48,9 +53,11 @@ import { ExploreService } from './explore/explore.service';
     BrowserAnimationsModule, 
     FormsModule,
     FlexLayoutModule,
-    CalendarModule
+    CalendarModule,
+    NgbModule, 
+    NotifierModule
     ],
-  providers: [UserService, ExploreService],
+  providers: [UserService, ExploreService, HistoryService],
   bootstrap: [AppComponent],
   entryComponents: [ProfileComponent]
 })

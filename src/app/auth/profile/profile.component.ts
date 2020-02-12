@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
 
-import { UserService, User } from './../../user.service';
+import { UserService, User } from './../../shared/user.service';
 
 @Component({
   selector: 'app-profile',

@@ -4,8 +4,8 @@
 
 	<div class="row">
 		<div class="col-xs-12">
-			<a class="list-group-item clearfix" *ngFor = "let e of events" (click)="selectedEvent = e">
-				<div class="pull-left">
+			<a class="list-group-item clearfix" *ngFor = "let e of (shuffledEvents ? shuffledEvents.slice(0,5): []); let i = index" (click)="selectedEvent = e">
+				<div class="pull-left" >
 					<h4 class="list-group-item-heading">{{ e.name }}</h4>
 					<p class="list-group-item-text">{{ e.type }}</p>
 					<p class="list-group-item-text">Rating: {{ e.rating }}</p></div>
@@ -45,21 +45,42 @@
 			</div>
 		</div> 
 		</div>
+		<div class="col-md-4 img_div">
+			<img src= "{{ selectedEvent.imgPath}}" alt="{{ selectedEvent.name}}" class="img-responsive">
+
+		</div>
 		
-		<div class="row" style="margin-top:15%">
+		
+		<div class="row" style="margin-top:35%">
 			<div class="col-xs-12">
 				Description: {{ selectedEvent.desc }}
 			</div>
 		</div>
-		<div class="row" style="margin-top: 5%">
+
+
+		<mat-form-field style= "margin-top: 5%;">
+			<input matInput placeholder="Pick a date" [matDatepicker]="picker" [(ngModel)]="bookDate" required>
+	  		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+			  <mat-datepicker #picker></mat-datepicker>
+			  <ngb-timepicker required [(ngModel)]="time"></ngb-timepicker>
+			  <!-- <p *ngIf="errExists" style = "color:red; margin-top: 2%;"> {{ errMsg }}</p> -->
+		</mat-form-field>
+
+
+
+		<div class="row" style="margin-top: 2%">
 			<div class="col-xs-12">
 				<div class="btn-group">
-					<button type="button" class="btn btn-primary dropdown-toggle">Book <span class = "caret"></span>
-					</button>		
+					<button type="button" (click)="onBook()"  class="btn btn-primary dropdown-toggle">Book <span class = "caret"></span>
+					</button>
+					<!-- <p style="color:blue; margin-left: 15%; margin-top: 3%; text-align: center;" *ngIf="msgSuccess != ''">{{ msgSuccess }}</p>			 -->
 				</div>
+				
 			</div>
 		</div>
+		
 	</div>
 
 </div>
+<!-- <mat-paginator [pageSize]="1" [pageSizeOptions]="[2, 3, 4, 6, 8, 10]"></mat-paginator> -->
 

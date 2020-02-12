@@ -9,7 +9,12 @@
 	margin-left: 10%;
 	color:#673ab7;
 }
-.img{
+/* .img{
 		max-width: 60%;
-	max-height: 60%;
+		max-height: 60%;
+} */
+
+.img_div{
+	margin-top: 5%;
+	margin-left: 15%;
 }

@@ -1,9 +1,10 @@
-export interface Event {
+export interface Spot {
 	name:string;
 	type: string; 
 	city: string;
 	rating: number;
 	imgPath:string;
 	desc: string;
-	status?: 'done' | 'cancelled' | null;
+	date?: Date | null;
+	status?: 'active' | 'expired' | null;
 }
